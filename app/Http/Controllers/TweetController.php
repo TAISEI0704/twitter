@@ -31,6 +31,9 @@ class TweetController extends Controller
     public function destroy($id)
     {
         $tweet = Tweet::find($id);
-        dd($tweet);
+        // dd($tweet);
+        $tweet->delete();
+
+        return redirect()->route('timeline');
     }
 }
