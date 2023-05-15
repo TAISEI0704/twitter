@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Tweet;
 
 class TweetController extends Controller
@@ -12,6 +14,7 @@ class TweetController extends Controller
     public function showTimelinePage()
     {
         $tweets = Tweet::latest()->get();
+        
         // dd($tweets);
         return view('timeline',['tweets' => $tweets]);
     }
@@ -22,7 +25,7 @@ class TweetController extends Controller
             'tweet' => ['required','string','max:280'],
         ]);
        Tweet::create([
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
             'tweet' => $request->tweet,
        ]);
        return back();
