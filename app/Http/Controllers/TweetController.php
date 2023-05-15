@@ -12,6 +12,7 @@ class TweetController extends Controller
     public function showTimelinePage()
     {
         $tweets = Tweet::latest()->get();
+        // dd($tweets);
         return view('timeline',['tweets' => $tweets]);
     }
 
@@ -25,5 +26,11 @@ class TweetController extends Controller
             'tweet' => $request->tweet,
        ]);
        return back();
+    }
+
+    public function destroy($id)
+    {
+        $tweet = Tweet::find($id);
+        dd($tweet);
     }
 }
