@@ -56,3 +56,10 @@ body{
     text-align: right;
 }
 
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
