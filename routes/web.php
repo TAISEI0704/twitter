@@ -21,4 +21,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/timeline', 'TweetController@showTimelinePage');
+Route::get('/timeline', 'TweetController@showTimelinePage')->name('timeline');
+Route::post('/timeline', 'TweetController@postTweet');
